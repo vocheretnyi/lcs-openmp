@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/i505710/CLionProjects/lcs-openmp/main.cpp
+iostream
+-
+cstring
+-
+vector
+-
+ctime
+-
+omp.h
+-
+timer.h
+/home/i505710/CLionProjects/lcs-openmp/timer.h
+
+/home/i505710/CLionProjects/lcs-openmp/timer.h
+iostream
+-
+string
+-
+omp.h
+/home/i505710/CLionProjects/lcs-openmp/omp.h
+

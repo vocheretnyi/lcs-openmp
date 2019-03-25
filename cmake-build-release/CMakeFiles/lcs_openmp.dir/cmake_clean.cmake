@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lcs_openmp.dir/main.cpp.o"
+  "CMakeFiles/lcs_openmp.dir/src/main.cpp.o"
+  "CMakeFiles/lcs_openmp.dir/src/solver.cpp.o"
   "lcs_openmp.pdb"
   "lcs_openmp"
 )

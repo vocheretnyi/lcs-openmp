@@ -1,4 +1,4 @@
-#include "Solver.h"
+#include "solver.hpp"
 
 #include <vector>
 #include "omp.h"
@@ -32,19 +32,17 @@ int LCSSolver::SolveLessMemory(size_t N, const string& s1, const string& s2) {
 }
 
 int LCSSolver::SolveParallel(size_t N, const string& s1, const string& s2) {
-//    vector<vector<int>> dp(N + N + 1, vector<int>(N + 1, 0));
     vector<vector<int>> dp(N + N + 1);
     for (int i = 0; i <= N + N; ++i) {
         dp[i].resize(min(i + 1, static_cast<int>(N) + 1));
     }
     for (int sum = 2; sum <= N + N; ++sum) {
-//#pragma omp parallel for simd safelen(1) schedule(static)
-#pragma omp parallel for schedule(static)
         int start = 1, finish = sum - 1;
         if (sum > N) {
             start = sum - N;
             finish = N;
         }
+#pragma omp parallel for schedule(static)
         for (int i = start; i <= finish; ++i) {
             int j = sum - i;
             if (s1[i - 1] == s2[j - 1]) {
@@ -68,7 +66,6 @@ int LCSSolver::SolveParallelLessMemory(size_t N, const string& s1, const string&
             start = sum - N;
             finish = N;
         }
-//#pragma omp parallel for simd safelen(1) schedule(static)
 #pragma omp parallel for schedule(static)
         for (int i = start; i <= finish; ++i) {
             int j = sum - i;

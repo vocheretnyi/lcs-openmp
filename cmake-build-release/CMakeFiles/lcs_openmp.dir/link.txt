@@ -1,1 +1,1 @@
-/usr/bin/g++-7  -O2  -fopenmp CMakeFiles/lcs_openmp.dir/main.cpp.o  -o lcs_openmp 
+/usr/bin/g++-7  -O2  -fopenmp CMakeFiles/lcs_openmp.dir/src/main.cpp.o CMakeFiles/lcs_openmp.dir/src/solver.cpp.o  -o lcs_openmp 

@@ -6,5 +6,5 @@ CXX_FLAGS = -O2   -Wall -Wextra -std=c++17 -fopenmp -std=gnu++1z
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/i505710/CLionProjects/lcs-openmp/include 
 

@@ -123,32 +123,59 @@ lcs_openmp/fast:
 	$(MAKE) -f CMakeFiles/lcs_openmp.dir/build.make CMakeFiles/lcs_openmp.dir/build
 .PHONY : lcs_openmp/fast
 
-main.o: main.cpp.o
+src/main.o: src/main.cpp.o
 
-.PHONY : main.o
+.PHONY : src/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/lcs_openmp.dir/build.make CMakeFiles/lcs_openmp.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/lcs_openmp.dir/build.make CMakeFiles/lcs_openmp.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-main.i: main.cpp.i
+src/main.i: src/main.cpp.i
 
-.PHONY : main.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/lcs_openmp.dir/build.make CMakeFiles/lcs_openmp.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/lcs_openmp.dir/build.make CMakeFiles/lcs_openmp.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-main.s: main.cpp.s
+src/main.s: src/main.cpp.s
 
-.PHONY : main.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/lcs_openmp.dir/build.make CMakeFiles/lcs_openmp.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/lcs_openmp.dir/build.make CMakeFiles/lcs_openmp.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
+src/solver.o: src/solver.cpp.o
+
+.PHONY : src/solver.o
+
+# target to build an object file
+src/solver.cpp.o:
+	$(MAKE) -f CMakeFiles/lcs_openmp.dir/build.make CMakeFiles/lcs_openmp.dir/src/solver.cpp.o
+.PHONY : src/solver.cpp.o
+
+src/solver.i: src/solver.cpp.i
+
+.PHONY : src/solver.i
+
+# target to preprocess a source file
+src/solver.cpp.i:
+	$(MAKE) -f CMakeFiles/lcs_openmp.dir/build.make CMakeFiles/lcs_openmp.dir/src/solver.cpp.i
+.PHONY : src/solver.cpp.i
+
+src/solver.s: src/solver.cpp.s
+
+.PHONY : src/solver.s
+
+# target to generate assembly for a file
+src/solver.cpp.s:
+	$(MAKE) -f CMakeFiles/lcs_openmp.dir/build.make CMakeFiles/lcs_openmp.dir/src/solver.cpp.s
+.PHONY : src/solver.cpp.s
 
 # Help Target
 help:
@@ -159,9 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... lcs_openmp"
 	@echo "... edit_cache"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/solver.o"
+	@echo "... src/solver.i"
+	@echo "... src/solver.s"
 .PHONY : help
 
 

@@ -4,7 +4,7 @@ project(lcs_openmp)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
-add_executable(lcs_openmp src/main.cpp include/timer.h src/Solver.cpp include/Solver.h)
+add_executable(lcs_openmp src/main.cpp include/timer.hpp src/solver.cpp include/solver.hpp include/test_runner.hpp)
 
 target_include_directories(lcs_openmp PRIVATE include)
 target_compile_options(lcs_openmp PRIVATE -Wall -Wextra -std=c++17 -fopenmp)

@@ -1,23 +1,31 @@
-#include <iostream>
-#include <cstring>
-#include <vector>
-#include <ctime>
+#include <string>
 #include <omp.h>
 
-#include "timer.h"
-#include "Solver.h"
+#include "timer.hpp"
+#include "solver.hpp"
+#include "test_runner.hpp"
 
 using namespace std;
 
-const int N = 3e4;
+void SimpleTestSeq() {
+    LCSSolver solver;
+    ASSERT_EQUAL(solver.SolveLessMemory(1, "a", "b"), 0);
+    ASSERT_EQUAL(solver.SolveLessMemory(3, "acb", "abc"), 2);
+    ASSERT_EQUAL(solver.SolveLessMemory(4, "acbe", "acbe"), 4);
+    ASSERT_EQUAL(solver.SolveLessMemory(5, "abcba", "cabab"), 3);
+}
 
-int main(int argc, char* argv[]) {
+void SimpleTestParallel() {
+    LCSSolver solver;
+    ASSERT_EQUAL(solver.SolveParallelLessMemory(1, "a", "b"), 0);
+    ASSERT_EQUAL(solver.SolveParallelLessMemory(3, "acb", "abc"), 2);
+    ASSERT_EQUAL(solver.SolveParallelLessMemory(4, "acbe", "acbe"), 4);
+    ASSERT_EQUAL(solver.SolveParallelLessMemory(5, "abcba", "cabab"), 3);
+}
 
+void LargeTest() {
     srand(time(NULL));
-    cout.precision(6);
-    omp_set_dynamic(false);
-    omp_set_num_threads(4);
-
+    const int N = 3e4;
     string s1, s2;
     s1.reserve(N);
     s2.reserve(N);
@@ -31,29 +39,32 @@ int main(int argc, char* argv[]) {
     }
 
     LCSSolver solver;
-    int a, b, c, d;
-   // if (argc > 1)
+    int res1, res2;
     {
-       // if (strcmp(argv[1], "sequential") == 0)
-         //else if (strcmp(argv[1], "par")  == 0)
-        {
-//            LOG_DURATION("seq");
-//            b = solver.Solve(N, s1, s2);
-        }
-        {
-            LOG_DURATION("seq less memory");
-            d = solver.SolveLessMemory(N, s1, s2);
-        }
-        {
-//            LOG_DURATION("parallel")
-//            a = solver.SolveParallel(N, s1, s2);
-        }
-        {
-            LOG_DURATION("parallel less memory");
-            c = solver.SolveParallelLessMemory(N, s1, s2);
-        }
-
+        LOG_DURATION("parallel");
+        res2 = solver.SolveParallelLessMemory(N, s1, s2);
     }
-    cout << a << endl << b << endl << c << endl << d << endl;
+    {
+        LOG_DURATION("sequential");
+        res1 = solver.SolveLessMemory(N, s1, s2);
+    }
+
+    ASSERT_EQUAL(res1, res2);
+}
+
+void Testing() {
+    TestRunner tr;
+    RUN_TEST(tr, SimpleTestSeq);
+    RUN_TEST(tr, SimpleTestParallel);
+    RUN_TEST(tr, LargeTest);
+}
+
+int main(int argc, char* argv[]) {
+
+    omp_set_dynamic(false);
+    omp_set_num_threads(8);
+
+    Testing();
+
     return 0;
 }

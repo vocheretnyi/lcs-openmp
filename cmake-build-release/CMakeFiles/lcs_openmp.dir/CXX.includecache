@@ -6,25 +6,43 @@
 
 #IncludeRegexTransform: 
 
-/home/i505710/CLionProjects/lcs-openmp/main.cpp
+../include/solver.hpp
+string
+-
+
+../include/test_runner.hpp
+sstream
+-
+stdexcept
+-
 iostream
 -
-cstring
+map
+-
+set
+-
+string
 -
 vector
 -
-ctime
--
-omp.h
--
-timer.h
-/home/i505710/CLionProjects/lcs-openmp/timer.h
 
-/home/i505710/CLionProjects/lcs-openmp/timer.h
+../include/timer.hpp
 iostream
 -
 string
 -
 omp.h
-/home/i505710/CLionProjects/lcs-openmp/omp.h
+../include/omp.h
+
+/home/i505710/CLionProjects/lcs-openmp/src/main.cpp
+string
+-
+omp.h
+-
+timer.hpp
+/home/i505710/CLionProjects/lcs-openmp/src/timer.hpp
+solver.hpp
+/home/i505710/CLionProjects/lcs-openmp/src/solver.hpp
+test_runner.hpp
+/home/i505710/CLionProjects/lcs-openmp/src/test_runner.hpp
 
